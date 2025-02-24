@@ -4,22 +4,21 @@ FROM python:3.9
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos del proyecto
+# Copia solo el archivo requirements.txt y luego instala las dependencias
+COPY requirements.txt /app/
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+# Copia el resto del código del proyecto
 COPY . .
-
-# Actualiza pip
-RUN pip install --upgrade pip
-
-# Instala las dependencias
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Ejecuta collectstatic para los archivos estáticos
 RUN python manage.py collectstatic --noinput
 
-# Expon el puerto
-EXPOSE 8080
+# Exponer el puerto dinámico proporcionado por Railway
+EXPOSE $PORT
 
-# Comando para iniciar Django con el servidor de producción
-CMD ["gunicorn", "mi_proyecto.wsgi", "--bind", "0.0.0.0:8080"]
+# Comando para iniciar Django con gunicorn
+CMD ["gunicorn", "mi_proyecto.wsgi", "--bind", "0.0.0.0:$PORT"]
 
+# Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
