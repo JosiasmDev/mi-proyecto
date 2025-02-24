@@ -19,7 +19,7 @@ RUN chmod +x /app/start.sh
 EXPOSE 8080
 
 # Comando para ejecutar el script de inicio
-CMD ["/app/start.sh"]
+CMD ["/mi_proyecto/start.sh"]
 
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
