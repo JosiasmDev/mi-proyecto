@@ -12,7 +12,7 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Ejecuta collectstatic para los archivos estáticos
-RUN python manage.py collectstatic --noinput
+#RUN python manage.py collectstatic --noinput
 
 # Exponer el puerto dinámico proporcionado por Railway
 EXPOSE $PORT
