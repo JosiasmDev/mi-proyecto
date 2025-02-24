@@ -1,0 +1,11 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "env": {
+    "PORT": {
+      "description": "Port to listen on",
+      "value": "8080"  # Fuerza el uso del puerto 8080
+    }
+  }
+}

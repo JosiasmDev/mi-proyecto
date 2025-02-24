@@ -3,7 +3,6 @@
 import os
 import sys
 
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mi_proyecto.settings')
@@ -21,7 +20,6 @@ def main():
 
     # Ejecuta el servidor en el puerto correcto
     execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
-
 
 if __name__ == '__main__':
     main()

@@ -18,8 +18,8 @@ RUN chmod +x /mi_proyecto/start.sh
 # Exponer el puerto 8080
 EXPOSE 8080
 
-# Comando para ejemi_proyectocutar el script de inicio
-CMD ["/mi_proyecto/start.sh"]
-
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
+
+# Comando para ejecutar el servidor Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]

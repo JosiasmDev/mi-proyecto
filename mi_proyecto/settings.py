@@ -166,3 +166,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 CSRF_COOKIE_DOMAIN = "mi-proyecto-73d04.web.app"
 CSRF_COOKIE_DOMAIN = None  # Esto permite múltiples orígenes en desarrollo
+
+
+import os
+
+PORT = int(os.getenv('PORT', 8080))  # Usa 8080 como valor por defecto si $PORT no está definido
