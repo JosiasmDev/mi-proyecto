@@ -11,14 +11,15 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 # Copia el resto del código del proyecto
 COPY . .
 
-# Ejecuta collectstatic para los archivos estáticos (opcional)
-# RUN python manage.py collectstatic --noinput
+# Copia el script de inicio
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
 # Exponer el puerto 8000
 EXPOSE 8000
 
-# Comando para iniciar Django con gunicorn
-CMD ["gunicorn", "mi_proyecto.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Comando para ejecutar el script de inicio
+CMD ["/app/start.sh"]
 
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
