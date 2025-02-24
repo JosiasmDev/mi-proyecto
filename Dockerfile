@@ -12,13 +12,13 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Copia el script de inicio
-COPY start.sh /app/start.sh
-RUN chmod +x /app/start.sh
+COPY start.sh /mi_proyecto/start.sh
+RUN chmod +x /mi_proyecto/start.sh
 
 # Exponer el puerto 8080
 EXPOSE 8080
 
-# Comando para ejecutar el script de inicio
+# Comando para ejemi_proyectocutar el script de inicio
 CMD ["/mi_proyecto/start.sh"]
 
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
