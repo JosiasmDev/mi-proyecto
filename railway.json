@@ -5,7 +5,7 @@
   "env": {
     "PORT": {
       "description": "Port to listen on",
-      "value": "8000"  
+      "value": "8000"
     }
   }
 }
