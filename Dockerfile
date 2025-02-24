@@ -15,7 +15,7 @@ COPY . .
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-# Exponer el puerto 8000
+# Exponer el puerto 8080
 EXPOSE 8080
 
 # Comando para ejecutar el script de inicio
