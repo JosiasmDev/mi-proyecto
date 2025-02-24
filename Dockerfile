@@ -8,18 +8,20 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del código del proyecto
+# Copia el resto del código del proyecto (incluye start.sh que está en la raíz)
 COPY . .
 
-# Copia el script de inicio
-COPY start.sh /mi_proyecto/start.sh
-RUN chmod +x /mi_proyecto/start.sh
+# Copia el script de inicio a una ubicación específica y dale permisos
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
-# Exponer el puerto 8080
+# Exponer el puerto
 EXPOSE 8080
 
-# Establece la variable de entorno DJANGO_SETTINGS_MODULE
+# Establece variables de entorno (comentarios separados en líneas distintas)
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
+# Valor por defecto para local
+ENV PORT=8080
 
-# Comando para ejecutar el servidor Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+# Usa el script de inicio
+CMD ["/app/start.sh"]

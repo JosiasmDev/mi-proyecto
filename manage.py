@@ -14,12 +14,7 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
-    
-    # Obtén el puerto desde la variable de entorno, si está presente
-    port = os.getenv('PORT', 8000)  # Si no existe, usará 8080 como valor por defecto
-
-    # Ejecuta el servidor en el puerto correcto
-    execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
+    execute_from_command_line(sys.argv)
 
 if __name__ == '__main__':
     main()
