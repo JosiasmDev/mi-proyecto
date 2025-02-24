@@ -16,6 +16,6 @@ EXPOSE 8000
 
 # Establece variables de entorno
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
-ENV PORT=8000  # Fallback para local
+ENV PORT=8000
 
 # No usamos CMD, dejamos que Railway use el Procfile
