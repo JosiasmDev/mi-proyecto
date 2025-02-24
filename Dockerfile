@@ -18,7 +18,7 @@ COPY . .
 EXPOSE $PORT
 
 # Comando para iniciar Django con gunicorn
-CMD ["gunicorn", "mi_proyecto.wsgi", "--bind", "0.0.0.0:$PORT"]
+CMD ["gunicorn", "mi_proyecto.wsgi", "--bind", "0.0.0.0:8000"]
 
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
