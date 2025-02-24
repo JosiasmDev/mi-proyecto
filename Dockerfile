@@ -21,3 +21,5 @@ EXPOSE 8080
 
 # Comando para iniciar Django con el servidor de producción
 CMD ["gunicorn", "mi_proyecto.wsgi", "--bind", "0.0.0.0:8080"]
+
+ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
