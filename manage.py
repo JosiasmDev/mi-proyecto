@@ -17,7 +17,7 @@ def main():
         ) from exc
     
     # Obtén el puerto desde la variable de entorno, si está presente
-    port = os.getenv('PORT', 8000)  # Si no existe, usará 8000 como valor por defecto
+    port = os.getenv('PORT', 8080)  # Si no existe, usará 8080 como valor por defecto
 
     # Ejecuta el servidor en el puerto correcto
     execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
