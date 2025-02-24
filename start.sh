@@ -6,5 +6,8 @@ echo "Puerto usado: $PORT"
 # Usa un valor por defecto si no se ha establecido el puerto
 PORT=${PORT:-8080}
 
+echo "El puerto asignado es: $PORT"
+
+
 # Ejecuta gunicorn usando el puerto especificado
 exec gunicorn mi_proyecto.wsgi:application --bind 0.0.0.0:$PORT
