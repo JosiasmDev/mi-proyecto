@@ -14,12 +14,11 @@ COPY . .
 # Ejecuta collectstatic para los archivos estáticos (opcional)
 # RUN python manage.py collectstatic --noinput
 
-# Exponer el puerto dinámico proporcionado por Railway o por un entorno de Docker
-EXPOSE $PORT
+# Exponer el puerto 8000
+EXPOSE 8000
 
 # Comando para iniciar Django con gunicorn
-CMD ["sh", "-c", "gunicorn mi_proyecto.wsgi:application --bind 0.0.0.0:$PORT"]
-
+CMD ["gunicorn", "mi_proyecto.wsgi:application", "--bind", "0.0.0.0:8000"]
 
 # Establece la variable de entorno DJANGO_SETTINGS_MODULE
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
