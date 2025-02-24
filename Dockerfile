@@ -11,8 +11,11 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 # Copia el resto del código del proyecto
 COPY . .
 
-# Exponer el puerto (coincide con Railway)
+# Exponer el puerto
 EXPOSE 8000
 
 # Establece variables de entorno
 ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
+ENV PORT=8000  # Fallback para local
+
+# No usamos CMD, dejamos que Railway use el Procfile
