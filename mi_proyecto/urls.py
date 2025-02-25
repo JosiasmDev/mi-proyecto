@@ -21,3 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),  # Incluir las rutas de la app 'blog'
 ]
+
+def home(request):
+    return HttpResponse("¡Hola! Mi blog está funcionando.")
+
+urlpatterns = [
+    path('', home),
+]

@@ -16,9 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-wqv+r(p67qjygowc4j$ne_s^@l@l#*b)h)&@p*+5*j1s&**01i')
-DEBUG = os.getenv('DEBUG', 'True') == 'True'  # True para depurar, False en producción
+DEBUG = os.getenv('DEBUG', 'True') == 'False'  # True para depurar, False en producción
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://josimdev1.pythonanywhere.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -72,10 +72,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
-# Database
+# Configuración de la base de datos usando PostgreSQL
 DATABASES = {
-    'default': dj_database_url.config(default=f'sqlite:///{BASE_DIR}/db.sqlite3')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME', 'db_name'),
+        'USER': os.getenv('DB_USER', 'user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),  # Cambia 'localhost' por 'db' cuando esté en Docker
+        'PORT': os.getenv('DB_PORT', '5432'),
+    }
 }
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

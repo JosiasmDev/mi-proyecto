@@ -19,3 +19,5 @@ ENV DJANGO_SETTINGS_MODULE=mi_proyecto.settings
 ENV PORT=8000
 
 # No usamos CMD, dejamos que Railway use el Procfile
+
+CMD ["gunicorn", "mi_proyecto.wsgi:application", "--bind", "0.0.0.0:8000"]
