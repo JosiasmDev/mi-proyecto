@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-wqv+r(p67qjygowc4j$ne_s^@l@l#*b)h)&@p*+5*j1s&**01i')
-DEBUG = os.getenv('DEBUG', 'True') == 'False'  # True para depurar, False en producción
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://josimdev1.pythonanywhere.com']
 
